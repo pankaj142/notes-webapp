@@ -2,8 +2,11 @@ import "dotenv/config";
 import NotesRoutes from "./routes/notes";
 import { NextFunction, Request, Response } from "express";
 import  express  from "express";
+import morgan from "morgan";
 
 const app = express();
+
+app.use(morgan("dev"))
 
 app.use(express.json()); // parses the incoming requests with JSON payloads
 
