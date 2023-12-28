@@ -5,6 +5,8 @@ import  express  from "express";
 
 const app = express();
 
+app.use(express.json()); // parses the incoming requests with JSON payloads
+
 // routes
 app.use("/api/notes", NotesRoutes)
 
