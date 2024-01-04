@@ -1,5 +1,6 @@
 import "dotenv/config";
 import NotesRoutes from "./routes/notes";
+import UserRoutes from "./routes/users";
 import { NextFunction, Request, Response } from "express";
 import  express  from "express";
 import morgan from "morgan";
@@ -13,6 +14,7 @@ app.use(express.json()); // parses the incoming requests with JSON payloads
 
 // routes
 app.use("/api/notes", NotesRoutes)
+app.use("/api/users", UserRoutes)
 
 // middlewares
 
