@@ -93,21 +93,11 @@ export const getAuthenicateUser : RequestHandler = async(req,res, next) => {
 }
 
 export const logout : RequestHandler = (req,res, next) => {
-    const userId = req.session.userId;
-    try{
-        if(!userId){
-            throw createHttpError(404, "User not exist");
+    req.session.destroy((err)=>{
+        if(err){
+            next(err);
+        }else{
+            res.sendStatus(200);
         }
-        req.session.destroy((err)=>{
-            if(err){
-                next(err);
-            }else{
-                res.status(200).json({
-                    message : "User logged out."
-                });
-            }
-        });
-    }catch(error){
-        next(error);
-    }
+    });
 }
