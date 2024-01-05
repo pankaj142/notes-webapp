@@ -29,7 +29,7 @@ export const getNote : RequestHandler = async(req, res, next)=>{
     }
 }
 
-interface CreatNoteBody {
+interface CreatNoteBody {//all fields are optional as we don't know wheather these fields are send from FE or not
     title? : string,
     text? : string
 }
